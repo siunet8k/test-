@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Vy đã có bồ</title>
+    <link rel="shortcut icon" href="./girl.png">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+
+<body>
+    <div class="card">
+        <div class="content">
+            <img src="vy5.jpg" width="120px" class="avatar" alt="Avatar">
+            <h2> Dư Hà Vy </h2>
+            <p>Lớp 12C1 <br> Trường THPT Nghi Lộc2 <br> 2025-2026 </p>
+            <div class="socials">
+                <a href="https://www.facebook.com/duhavy" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
+                <a href="#" class="phone-icon" onclick="togglePhoneTooltip(event)">
+                    <i class="fa-solid fa-phone"></i>
+                    <span class="phone-tooltip">
+                        <span class="phone-number">+84912345678</span>
+                        <button class="copy-btn" onclick="copyPhoneNumber(event)">
+                            <i class="fa-solid fa-copy"></i>
+                        </button>
+                    </span>
+                </a>
+            </div>
+            <button>Contact Me Now</button>
+        </div>
+    </div>
+    <div class="copy-toast">Đã sao chép!</div>
+
+    <script>
+        // Ẩn tooltip khi tải trang
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelector('.phone-tooltip').style.display = 'none';
+        });
+
+        function togglePhoneTooltip(event) {
+            event.preventDefault();
+            const tooltip = event.currentTarget.querySelector('.phone-tooltip');
+            tooltip.style.display = tooltip.style.display === 'block' ? 'none' : 'block';
+        }
+
+        function copyPhoneNumber(event) {
+            event.stopPropagation();
+            const phoneNumber = document.querySelector('.phone-number').textContent;
+            const tooltip = event.currentTarget.closest('.phone-tooltip');
+            navigator.clipboard.writeText(phoneNumber).then(() => {
+                const toast = document.querySelector('.copy-toast');
+                toast.style.display = 'block';
+                tooltip.style.display = 'none'; // Ẩn tooltip khi sao chép
+                setTimeout(() => {
+                    toast.style.display = 'none';
+                }, 2000);
+            });
+        }
+    </script>
+</body>
+</html>
