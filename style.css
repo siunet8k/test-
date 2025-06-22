@@ -14,7 +14,7 @@
     min-height: 100vh;
     display: grid;
     place-items: center;
-    background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%), url(/backgroud.png);
+    background: linear-gradient(to top, rgba(0,0,0,0.3) 50%, rgba(0,0,0,0.3) 50%), url(backgroud.jpg);
     background-position: auto;
     background-size: cover;
     font-family: 'segoe ui', sans-serif;
